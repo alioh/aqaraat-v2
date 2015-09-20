@@ -2,7 +2,7 @@
 
 ## ENG
 
-Aqaraat is a property management application that anyone can use to arrange their properties, bills and customers. This application is similar to [This one](https://github.com/alioh/aqaraat). This should be a better version and have more features than the previous one.
+Aqaraat is a property management application that anyone can use to arrange their properties, bills and customers. This application is similar to [This one](https://github.com/alioh/aqaraat) . This should be a better version and have more features than the previous one.
 
 Things that this version will support:
 
@@ -17,12 +17,12 @@ Things that this version will support:
 * Print bills or add image/pdf copy to a bill page.
 
 
-Feel free to contact me: www.alioh.com, [@alioh](https://twitter.com/alioh).
+Feel free to contact me: www.alioh.com, [@alioh](https://twitter.com/alioh) .
 
 
 ## AR
 
-عقارات هو موقع لإدارة العقارات يساعدك على متابعة عقاراتك، الفواتير والعملاء. هذه النسخة من الموقع مشابهه لنسخة سابقه [هنا](https://github.com/alioh/aqaraat). هذه النسخه ستكون أفضل من السابقه وستحتوي على إضافت أكثر.
+عقارات هو موقع لإدارة العقارات يساعدك على متابعة عقاراتك، الفواتير والعملاء. هذه النسخة من الموقع مشابهه لنسخة سابقه [هنا](https://github.com/alioh/aqaraat) . هذه النسخه ستكون أفضل من السابقه وستحتوي على إضافت أكثر.
 
 الخصائص التي سيتم إضافتها لهذه النسخه:
 
@@ -36,4 +36,4 @@ Feel free to contact me: www.alioh.com, [@alioh](https://twitter.com/alioh).
 
 * طباعة الفواتير او تحميلها لصفحة الفواتير كصورة او ملف PDF.
 
-يمكن التواصل معي عبر: www.alioh.com, [@alioh](https://twitter.com/alioh).
+يمكن التواصل معي عبر: www.alioh.com, [@alioh](https://twitter.com/alioh) .
