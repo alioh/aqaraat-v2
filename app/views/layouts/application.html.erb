@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>AqaraatV2</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+
+<ul id="dropdown1" class="dropdown-content">
+  <li><a href="#!">عقاراتي</a></li>
+  <li><a href="#!">إدارة الحساب</a></li>
+  <li class="divider"></li>
+  <li><a href="#!">تسجيل الخروج</a></li>
+</ul>
+
+<header>
+	<nav class="blue-grey lighten-5">
+		<div class="container">
+			<div class="nav-wrapper">
+				<a href="#!" class="brand-logo right blue-grey-text text-darken-4">عقارات</a>
+				<a href="#" data-activates="mobile-demo" class="button-collapse blue-grey-text text-darken-4"><i class="mdi-navigation-menu left"></i></a>
+					<ul class="left hide-on-med-and-down">
+						<!-- Dropdown Trigger -->
+						<li><a class="dropdown-button blue-grey-text" href="#!" data-activates="dropdown1"><small class="mdi-navigation-menu left"></small></a></li>
+						<li><a href="badges.html" class="blue-grey-text">التسجيل</a></li>
+						<li><a href="badges.html" class="blue-grey-text">تسجيل الدخول</a></li>
+						<li><a href="sass.html" class="blue-grey-text">الرئيسية</a></li>
+					</ul>
+					<ul class="side-nav" id="mobile-demo">
+						<li><a href="sass.html" class="blue-grey-text">الرئيسية</a></li>
+						<li><a href="badges.html" class="blue-grey-text">لوحة التحكم</a></li>
+						<li><a href="badges.html" class="blue-grey-text">تسجيل الدخول</a></li>
+						<li><a href="badges.html" class="blue-grey-text">التسجيل</a></li>
+					</ul>
+				</div>
+			</div>
+	</nav>
+</header>
+
+<main>
+	<div class="container">
+		<%= yield %>
+	</div>
+</main>
+
+<footer class="page-footer blue-grey lighten-5">
+	<div class="container">
+		<div class="row">
+			<div class="col l6 s12">
+				<h5 class="right blue-grey-text text-darken-4">كُن على تواصل</h5>
+				<p class="right blue-grey-text">You can use rows and columns here to organize your footer content.</p>
+			</div>
+		<div class="col l4 offset-l2 s12" align="right">
+			<h5 class="blue-grey-text text-darken-4">روابط</h5>
+			<ul>
+				<li><a class="blue-grey-text" href="#!">الرئيسية</a></li>
+				<li><a class="blue-grey-text" href="#!">عن الموقع</a></li>
+				<li><a class="blue-grey-text" href="#!">المساعدة</a></li>
+				<li><a class="blue-grey-text" href="#!">التواصل</a></li>
+			</ul>
+		</div>
+		</div>
+	</div>
+	<div class="footer-copyright">
+		<div class="container blue-grey-text">
+		جميع الحقوق محفوظه © عقارات
+		</div>
+	</div>
+</footer>
+
+</body>
+	<script>
+		$(".button-collapse").sideNav();
+		$(".dropdown-button").dropdown();
+	</script>
+</html>
