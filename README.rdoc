@@ -1,28 +1,39 @@
-== README
+== Aqaraat عقارات
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## ENG
 
-Things you may want to cover:
+Aqaraat is a property management application that anyone can use to arrange their properties, bills and customers. This application is similar to [This one](https://github.com/alioh/aqaraat). This should be a better version and have more features than the previous one.
 
-* Ruby version
+Things that this version will support:
 
-* System dependencies
+* A better interface/pages design.
 
-* Configuration
+* More and better stats of your properties and bills.
 
-* Database creation
+* You can make your property page public and show it to customers.
 
-* Database initialization
+* Add images to a property.
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Print bills or add image/pdf copy to a bill page.
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Feel free to contact me: www.alioh.com, [@alioh](https://twitter.com/alioh).
+
+
+## AR
+
+عقارات هو موقع لإدارة العقارات يساعدك على متابعة عقاراتك، الفواتير والعملاء. هذه النسخة من الموقع مشابهه لنسخة سابقه [هنا](https://github.com/alioh/aqaraat). هذه النسخه ستكون أفضل من السابقه وستحتوي على إضافت أكثر.
+
+الخصائص التي سيتم إضافتها لهذه النسخه:
+
+* واجهة وتصميم أفضل.
+
+* إحصائيات افضل للتعقارات والفواتير.
+
+* يمكنك نشر ومشاركة صفحة العقار مع العملاء.
+
+* إضافة صور للعقارات.
+
+* طباعة الفواتير او تحميلها لصفحة الفواتير كصورة او ملف PDF.
+
+يمكن التواصل معي عبر: www.alioh.com, [@alioh](https://twitter.com/alioh).
