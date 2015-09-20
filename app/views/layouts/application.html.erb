@@ -9,43 +9,19 @@
 </head>
 <body>
 
+<%= render "shared/navbar.html.erb" %>
 
-<ul id="dropdown1" class="dropdown-content">
-  <li><a href="#!">عقاراتي</a></li>
-  <li><a href="#!">إدارة الحساب</a></li>
-  <li class="divider"></li>
-  <li><a href="#!">تسجيل الخروج</a></li>
-</ul>
+<p class="notice">
+	<%= notice %>
+</p>
+<p class="alert">
+	<%= alert %>
+</p>
 
-<header>
-	<nav class="blue-grey lighten-5">
-		<div class="container">
-			<div class="nav-wrapper">
-				<a href="#!" class="brand-logo right blue-grey-text text-darken-4">عقارات</a>
-				<a href="#" data-activates="mobile-demo" class="button-collapse blue-grey-text text-darken-4"><i class="mdi-navigation-menu left"></i></a>
-					<ul class="left hide-on-med-and-down">
-						<!-- Dropdown Trigger -->
-						<li><a class="dropdown-button blue-grey-text" href="#!" data-activates="dropdown1"><small class="mdi-navigation-menu left"></small></a></li>
-						<li><a href="badges.html" class="blue-grey-text">التسجيل</a></li>
-						<li><a href="badges.html" class="blue-grey-text">تسجيل الدخول</a></li>
-						<li><a href="sass.html" class="blue-grey-text">الرئيسية</a></li>
-					</ul>
-					<ul class="side-nav" id="mobile-demo">
-						<li><a href="sass.html" class="blue-grey-text">الرئيسية</a></li>
-						<li><a href="badges.html" class="blue-grey-text">لوحة التحكم</a></li>
-						<li><a href="badges.html" class="blue-grey-text">تسجيل الدخول</a></li>
-						<li><a href="badges.html" class="blue-grey-text">التسجيل</a></li>
-					</ul>
-				</div>
-			</div>
-	</nav>
-</header>
+<div class="container">
+	<%= yield %>
+</div>
 
-<main>
-	<div class="container">
-		<%= yield %>
-	</div>
-</main>
 
 <footer class="page-footer blue-grey lighten-5">
 	<div class="container">

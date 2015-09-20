@@ -1,0 +1,38 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+  	<div class="navbar-header pull-left">
+    	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="navbar-header pull-right">
+      <a class="navbar-brand" href="#">عقارات</a>
+    </div>
+    
+    <div id="navbar" class="navbar-collapse collapse ">
+      <ul class="nav navbar-nav navbar-left">
+      	<% if(user_signed_in?) %>
+      		<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+          	<span class="caret"></span>
+          	<%= current_user.email %> 
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="#">لوحة التحكم</a></li>
+            <li> <%= link_to "إدارة الحساب" , edit_user_registration_path %> </a></li>
+            <li role="separator" class="divider"></li>
+            <li> <%= link_to "تسجيل الخروج" , destroy_user_session_path, :method => :delete %> </a></li>
+          </ul>
+        </li>
+        <% else %>
+          <li> <%= link_to "تسجيل الدخول" , new_user_session_path %> </li>
+          <li> <%= link_to "التسجيل" , new_user_registration_path %> </a></li>
+        <% end %>
+        <li><a href="#">الرئيسية</a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>

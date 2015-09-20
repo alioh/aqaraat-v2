@@ -14,18 +14,5 @@
  *= require_self
  */
 
-@import "materialize";
-
-body {
-	display: flex;
-	min-height: 100vh;
-	flex-direction: column;
-}
-
-main {
-	flex: 1 0 auto;
-}
-
-i {
-	font-size: 5%;
-}
+@import "bootstrap-sprockets";
+@import "bootstrap";
