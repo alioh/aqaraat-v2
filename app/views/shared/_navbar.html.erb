@@ -9,29 +9,64 @@
       </button>
     </div>
     <div class="navbar-header pull-right">
-      <a class="navbar-brand" href="#">عقارات</a>
+      <a class="navbar-brand" href="<%= root_path %>">عقارات</a>
     </div>
     
-    <div id="navbar" class="navbar-collapse collapse ">
+    <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-left">
       	<% if(user_signed_in?) %>
       		<li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-          	<span class="caret"></span>
-          	مرحباً <%= current_user.fullname %>
-          </a>
-          <ul class="dropdown-menu">
-            <li><a href="#">لوحة التحكم</a></li>
-            <li> <%= link_to "إدارة الحساب" , edit_user_registration_path %> </a></li>
-            <li role="separator" class="divider"></li>
-            <li> <%= link_to "تسجيل الخروج" , destroy_user_session_path, :method => :delete %> </a></li>
-          </ul>
-        </li>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            	<span class="caret"></span>
+            	مرحباً <%= current_user.fullname %>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="#">لوحة التحكم</a></li>
+              <li> <%= link_to "إدارة الحساب" , edit_user_registration_path %> </a></li>
+              <li role="separator" class="divider"></li>
+              <li> <%= link_to "تسجيل الخروج" , destroy_user_session_path, :method => :delete %> </a></li>
+            </ul>
+          </li>
         <% else %>
-          <li> <%= link_to "تسجيل الدخول" , new_user_session_path %> </li>
+        <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+          <span class="caret"></span>
+          تسجيل الدخول</a>
+        <ul id="dropdown-login" class="dropdown-menu" style="padding: 5px 10px 5px 10px;">
+           <%= form_for("user", :url => user_session_path) do |f| %>
+              <li>
+                 <div class="control-group">
+                    <%= f.label "البريد الإلكتروني", :class => "control-label pull-right" %>
+                    <div class="controls">
+                       <%= f.text_field :email %>
+                    </div>
+                 </div>
+              </li>
+              <li>
+                 <div class="control-group">
+                    <%= f.label "كلمة المرور", :class => "control-label pull-right" %>
+                    <div class="controls">
+                       <%= f.password_field :password %>
+                    </div>
+                 </div>
+              </li>
+              <li>
+                 <div class="control-group">
+                    <%= f.label "تذكرني", :class => "control-label pull-right" %>
+                    <div class="controls">
+                       <%= f.check_box :remember_me, :class => "control-label pull-right" %>
+                    </div>
+                 </div>
+              </li>
+              <li>
+                 <%= f.submit "تسجيل الدخول", :class => "btn" %>
+              </li>
+              </li>
+           <% end %>
+        </ul>
           <li> <%= link_to "التسجيل" , new_user_registration_path %> </a></li>
         <% end %>
-        <li><a href="#">الرئيسية</a></li>
+        <li><a href="<%= root_path %>">الرئيسية</a></li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>
