@@ -1,0 +1,55 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+  	<div class="navbar-header pull-left">
+    	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+    </div>
+    <div class="navbar-header pull-right">
+      <a class="navbar-brand" href="<%= root_path %>">عقارات</a>
+    </div>
+    
+    <div id="navbar" class="navbar-collapse collapse navbar-inverse-collapse">
+      <ul class="nav navbar-nav navbar-left">
+      	<% if(user_signed_in?) %>
+      		<li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            	<span class="caret"></span>
+            	مرحباً <%= current_user.fullname %>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="#">لوحة التحكم</a></li>
+              <li><%= link_to "إدارة الحساب" , edit_user_registration_path %></a></li>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to "تسجيل الخروج" , destroy_user_session_path, :method => :delete %></a></li>
+            </ul>
+          </li>
+        <% else %>
+        <li class="dropdown">
+        <a href="#" data-target="#" class="dropdown-toggle" data-toggle="dropdown"><b class="caret"></b> تسجيل الدخول</a>
+          <ul class="dropdown-menu" style="padding: 5px 10px 5px 10px;color:black">
+             <%= form_for("user", :url => user_session_path) do |f| %>
+                <li><%= f.label "البريد الإلكتروني", :class => "control-label pull-right" %><%= f.text_field :email %></li>
+                <li>
+                  <%= f.label "كلمة المرور", :class => "control-label pull-right" %>
+                  <%= f.password_field :password %>
+                </li>
+                <li>
+                  <%= f.label "تذكرني", :class => "control-label pull-right" %>
+                  <%= f.check_box :remember_me, :class => "checkbox pull-right" %>
+                  <%= f.submit "تسجيل الدخول", :class => "btn btn-primary" %>
+                </li>
+             <% end %>
+          </ul>
+        </li>
+          <li> <%= link_to "التسجيل" , new_user_registration_path %> </a></li>
+        <% end %>
+        <li><a href="<%= root_path %>">الرئيسية</a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
+

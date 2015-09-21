@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar">
 	<head>
-
 	  <title>AqaraatV2</title>
 	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -9,17 +8,14 @@
 	</head>
 
 	<body>
-
-	<%= render "shared/navbar.html.erb" %>
-
-	<p class="notice">
-		<%= notice %>
-	</p>
-	<p class="alert">
-		<%= alert %>
-	</p>
-
+	<%= render "shared/navbar" %>
 	<div class="container">
+		<% flash.each do |name, msg| %>
+			<div class="alert alert-success text-right">
+				<button type="button" class="close pull-left" data-dismiss="alert">×</button>
+				<%= msg %>
+			</div>
+		<% end %>
 		<%= yield %>
 	</div>
 
