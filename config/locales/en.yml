@@ -20,19 +20,4 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  activerecord:
-    errors:
-      models:
-        user:
-          attributes:
-            email:
-              blank: "-  حقل البريد الإلكتروني لا يمكن ان يكون فارغًا"
-              taken: "-  بريد إلكتروني مُستخدم، يرجى محاولة التسجيل ببريد إلكتروني آخر"
-              invalid: "ا-  لبريد الإلكتروني غير صحيح"
-            password:
-              blank: "حق كلمة المرور لا يمكن ان يكون فارغًا"
-              confirmation: "تأك ان كلمة المرور مطابقة في كلا الحقلين"
-            password_confirmation:
-              blank: "Please Specify a Password Confirmation"
-            fullname:
-              blank: "- حقل الإسم الكامل لا يمكن ان يكون فارغًا"
+  hello: "Hello world"
