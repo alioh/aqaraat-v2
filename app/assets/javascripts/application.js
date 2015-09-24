@@ -13,6 +13,7 @@
 //= require jquery
 //= require bootstrap-material-design
 //= require jquery_ujs
+//= require toastr
 //= require turbolinks
 //= require jquery
 //= require bootstrap-sprockets

@@ -81,3 +81,5 @@ ar:
             password_confirmation:
               blank: "Please Specify a Password Confirmation"
               confirmation: "تأك ان كلمة المرور مطابقة في كلا الحقلين"
+            confirmation_token:
+              invalid: "يرجى التأكد من رابط تفعيل الحساب، اطلب رابط تفعيل الحساب مره أخرى"

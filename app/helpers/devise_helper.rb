@@ -15,9 +15,8 @@ module DeviseHelper
 
     html = <<-HTML
     <div style="direction: rtl;">
-    <a class="btn btn-default disabled"><p class="text-right">حدث خطأ، تأكد من الآتي:</p>
+    <p class="text-right">حدث خطأ، تأكد من الآتي:</p>
         <ul class="text-right">#{messages}</ul>
-    </a>
     </div>
     HTML
 
