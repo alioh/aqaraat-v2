@@ -1,0 +1,36 @@
+<div class="row">
+	<div class="container" style="direction: rtl;">
+		<div class="panel panel-default">
+			<div class="panel-heading">الملف الشخصي</div>
+				<div class="panel-body">
+				  <p>الإسم: </p><p type="text" class="form-control"> <%= @user.fullname %> </p>
+				  <p>رقم الهاتف: </p><p type="text" class="form-control"> <%= @user.phone_number %> </p>
+				  <p>العقارات الممتلكه: </p>
+				  	<table class="table table-striped table-hover">
+							<thead>
+							<tr >
+							<th style="text-align: right">#</th>
+							<th style="text-align: right">العنوان</th>
+							<th style="text-align: right">المدينه</th>
+							<th style="text-align: right">صفحة العقار</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+							<td>1</td>
+							<td>تجربه</td>
+							<td>تجربه</td>
+							<td>تجربه</td>
+							</tr>
+							<tr>
+							<td>2</td>
+							<td>تجربه</td>
+							<td>تجربه</td>
+							<td>تجربه</td>
+							</tr>
+							</tbody>
+							</table>
+				</div>
+		</div>
+	</div>
+</div>

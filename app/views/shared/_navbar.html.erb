@@ -14,6 +14,7 @@
         <ul class="dropdown-menu">
           <li><a href="javascript:void(0)">لوحة التحكم</a></li>
           <li><%= link_to "إدارة الحساب" , edit_user_registration_path %></li>
+          <li><%= link_to "عرض الملف الشخصي" , user_path(current_user) %></li>
           <li class="divider"></li>
           <li><%= link_to "تسجيل الخروج" , destroy_user_session_path, :method => :delete %></li>
         </ul>
