@@ -6,7 +6,7 @@ Aqaraat is a property management application that anyone can use to arrange thei
 
 Things that this version will support:
 
-* Better interface/pages design.
+* Better interface/pages design. [ ✓ ]
 
 * More and better stats of your properties and bills.
 
@@ -26,9 +26,9 @@ Feel free to contact me: www.alioh.com, https://twitter.com/alioh .
 
 الخصائص التي سيتم إضافتها لهذه النسخه:
 
-* واجهة وتصميم أفضل.
+* واجهة وتصميم أفضل. [ ✓ ]
 
-* إحصائيات افضل للتعقارات والفواتير.
+* إحصائيات افضل للعقارات والفواتير.
 
 * يمكنك نشر ومشاركة صفحة العقار مع العملاء.
 
@@ -37,3 +37,6 @@ Feel free to contact me: www.alioh.com, https://twitter.com/alioh .
 * طباعة الفواتير او تحميلها لصفحة الفواتير كصورة او ملف PDF.
 
 يمكن التواصل معي عبر: www.alioh.com, https://twitter.com/alioh .
+
+Progress:
+███████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ 20%
