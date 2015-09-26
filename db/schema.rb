@@ -11,7 +11,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150925035016) do
+ActiveRecord::Schema.define(version: 20150926062854) do
+
+  create_table "Bills", force: :cascade do |t|
+    t.date     "due_date"
+    t.integer  "amount"
+    t.string   "bill_type"
+    t.boolean  "bill_status"
+    t.text     "description"
+    t.integer  "property_id"
+    t.integer  "user_id"
+    t.integer  "resident_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "Bills", ["property_id"], name: "index_bills_on_property_id_id"
+  add_index "Bills", ["resident_id"], name: "index_bills_on_resident_id_id"
+  add_index "Bills", ["user_id"], name: "index_bills_on_user_id_id"
+
+  create_table "Residents", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "phone_number"
+    t.text     "summary"
+    t.integer  "current_property_id"
+    t.integer  "user_id"
+    t.integer  "bill_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  create_table "properties", force: :cascade do |t|
+    t.string   "address"
+    t.string   "city"
+    t.string   "country"
+    t.string   "property_type"
+    t.integer  "monthly_rent"
+    t.text     "description"
+    t.boolean  "vacancy"
+    t.integer  "user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "properties", ["user_id"], name: "index_properties_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
