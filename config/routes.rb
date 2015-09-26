@@ -1,12 +1,38 @@
 Rails.application.routes.draw do
+  get 'residents/index'
+
+  get 'residents/show'
+
+  get 'residents/new'
+
+  get 'residents/create'
+
+  get 'residents/edit'
+
+  get 'residents/update'
+
+  get 'bills/index'
+
+  get 'bills/show'
+
+  get 'bills/new'
+
+  get 'bills/create'
+
+  get 'bills/edit'
+
+  get 'bills/update'
+
   devise_for :users
   get 'pages/about'
-
   get 'pages/contact'
-
   root 'pages#index'
 
   resources :users, only: [:show]
+  resources :properties
+  resources :bills
+  resources :residents
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
