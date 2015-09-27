@@ -1,0 +1,66 @@
+<div class="row">
+	<div class="container" style="direction: rtl;">
+		<div class="panel panel-default">
+			<div class="panel-heading">صفحة العقار</div>
+				<div class="panel-body">
+					<div class="container">
+					  <%= form_for @property do |f| %>
+						<div class="row">
+							<div class="form-group">
+								<div class="col-lg-10 pull-right">
+									<%= f.text_field :address,"size" => 50, placeholder: "العنوان", class: "form-control" %>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="form-group">
+								<div class="col-lg-10 pull-right">
+									<%= f.text_field :city, placeholder: "المدينه", class: "form-control" %>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="form-group">
+								<div class="col-lg-10 pull-right">
+									<%= f.text_field :country, placeholder: "الدوله", class: "form-control" %>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="form-group">
+								<div class="col-lg-4 pull-right">
+									<div class="input-group">
+									<%= f.text_field :monthly_rent, placeholder: "الإيجار الشهري", class: "form-control" %>
+									<span class="input-group-addon">ريال</span>
+									</div>
+								</div>
+								<div class="col-md-3 pull-right">
+									نوع العقار: 
+									<%= f.select :property_type, [["شقه", "شقه"], ["منزل", "منزل"]], id: "property_type", prompt: "إختر..", class: "form-control" %>
+								</div>
+								<div class="col-md-4 pull-right">
+									شاغر
+									<%= f.check_box :vacancy %>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+								<div class="col-lg-10 pull-right">
+								<%= f.text_area :description, rows: 3, placeholder: "عن العقار \nأعطِ معلومات عن العقار", class: "form-control" %>
+							</div>
+						</div>
+
+						<div class="actions pull-right">
+						<%= f.submit "حفظ", :class => "btn btn-inverse" %>
+						</div>
+
+						<% end %>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>

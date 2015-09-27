@@ -4,5 +4,5 @@ class Property < ActiveRecord::Base
   has_one :resident
   has_many :bills
 
-  validates :address , :city , :country
+  validate :address , :city , :country
 end

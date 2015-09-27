@@ -17,6 +17,7 @@ gem 'bootstrap-sass', '~> 3.3.5'
 gem 'devise'
 gem 'devise-i18n'
 gem 'toastr-rails'
+gem 'gmaps4rails'
 # ---------------------------------------------- #
 
 
