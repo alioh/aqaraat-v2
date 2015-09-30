@@ -1,3 +1,5 @@
+// more info: https://binarapps.com/blog/integration-of-googlemaps-in-rails-4/
+
 function gmap_show(company) {
   if ((company.lat == null) || (company.lng == null) ) {    // validation check if coordinates are there
     return 0;
@@ -38,7 +40,7 @@ function gmap_form(company) {
       ]);
       handler.bounds.extendWith(markers);
       handler.fitMapToBounds();
-      handler.getMap().setZoom(10);
+      handler.getMap().setZoom(18);
     }
     else {    // show the empty map
       handler.fitMapToBounds();

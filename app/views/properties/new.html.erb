@@ -1,9 +1,9 @@
 <div class="row">
-	<div class="container" style="direction: rtl;">
+	<div class="container-fluid" style="direction: rtl;">
 		<div class="panel panel-default">
 			<div class="panel-heading">صفحة العقار</div>
 				<div class="panel-body">
-					<div class="container">
+					<div class="container-fluid">
 					  <%= form_for @property do |f| %>
 						<div class="row">
 							<div class="form-group">
@@ -55,9 +55,9 @@
 						</div>
 
 						<div class="row">
-							<div class="col-lg-7 pull-right">
+							<div class="col-xs-12 col-sm-6 col-lg-10 pull-right">
 							موقع العقار
-							<div id="map" style="width: 550px; height: 350px; align: right; "></div>
+							<div id="map" class="Flexible-container"></div>
 							<%= f.hidden_field :lat, id: 'map_lat' %>
 						  <%= f.hidden_field :lng, id: 'map_lng' %>
 							<script>
@@ -65,7 +65,7 @@
 						    gmap_form(null);    // form map for new view (print nothing with possibility of put marker)
 						  });
 							</script>
-							</div>
+						</div>
 						</div>
 						</div>
 							
@@ -73,8 +73,8 @@
 						<%= f.submit "حفظ", :class => "btn btn-inverse" %>
 						<% end %>
 						</div>
-					</div>
 			</div>
 		</div>
 	</div>
+</div>
 </div>
