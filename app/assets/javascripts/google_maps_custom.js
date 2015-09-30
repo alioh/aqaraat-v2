@@ -1,22 +1,18 @@
-// More details: https://binarapps.com/blog/integration-of-googlemaps-in-rails-4/
-
-function gmap_show(property) {
-  if ((property.lat == null) || (property.lng == null) ) {    // validation check if coordinates are there
+function gmap_show(company) {
+  if ((company.lat == null) || (company.lng == null) ) {    // validation check if coordinates are there
     return 0;
   }
-
   handler = Gmaps.build('Google');    // map init
   handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
     markers = handler.addMarkers([    // put marker method
       {
-        "lat": property.lat,    // coordinates from parameter property
-        "lng": property.lng,
+        "lat": company.lat,    // coordinates from parameter company
+        "lng": company.lng,
         "picture": {    // setup marker icon
-          "url": '/icons/red-dot.png',
+          "url": 'http://www.planet-action.org/img/2009/interieur/icons/orange-dot.png',
           "width":  32,
           "height": 32
-        },
-        "infowindow": "<b>" + property.address + "</b> " + property.city + "</b> "  + property.property_type + " - " + property.monthly_rent + " - " + property.vacancy
+        }
       }
     ]);
     handler.bounds.extendWith(markers);
@@ -25,21 +21,20 @@ function gmap_show(property) {
   });
 }
 
-function gmap_form(property) {
+function gmap_form(company) {
   handler = Gmaps.build('Google');    // map init
   handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-    if (property && property.lat && property.lng) {    // statement check - new or edit view
+    if (company && company.lat && company.lng) {    // statement check - new or edit view
       markers = handler.addMarkers([    // print existent marker
         {
-          "lat": property.lat,
-          "lng": property.lng,
+          "lat": company.lat,
+          "lng": company.lng,
           "picture": {
-            "url": '/icons/red-dot.png',
+            "url": 'http://www.planet-action.org/img/2009/interieur/icons/orange-dot.png',
             "width":  32,
             "height": 32
-          },
-          "infowindow": "<b>" + property.address + "</b> " + property.city + "</b> "  + property.property_type + " - " + property.monthly_rent + " - " + property.vacancy
-      }
+          }
+        }
       ]);
       handler.bounds.extendWith(markers);
       handler.fitMapToBounds();

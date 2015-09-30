@@ -1,28 +1,4 @@
 Rails.application.routes.draw do
-  get 'residents/index'
-
-  get 'residents/show'
-
-  get 'residents/new'
-
-  get 'residents/create'
-
-  get 'residents/edit'
-
-  get 'residents/update'
-
-  get 'bills/index'
-
-  get 'bills/show'
-
-  get 'bills/new'
-
-  get 'bills/create'
-
-  get 'bills/edit'
-
-  get 'bills/update'
-
   devise_for :users
   get 'pages/about'
   get 'pages/contact'

@@ -9,6 +9,13 @@ class PropertiesController < ApplicationController
   end
 
   def show
+    @property = Property.find(params[:id])
+    @hash = Gmaps4rails.build_markers @property do |u, m|
+      m.lat u.geocode.first rescue nil
+      m.lng u.geocode.second rescue nil
+      m.json({ :id => u.id })
+    end
+
   end
 
   def new

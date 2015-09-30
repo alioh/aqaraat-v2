@@ -1,2 +1,24 @@
-<h1>Properties#show</h1>
-<p>Find me in app/views/properties/show.html.erb</p>
+
+<h1>
+  <%= @property.address %>
+</h1>
+<p>
+  lat:
+  <%= @property.lat %>
+</p>
+<p>
+  lng:
+  <%= @property.lng %>
+</p>
+<!-- map div
+-->
+<div id="map" style="width: 550px; height: 350px;"></div>
+<script>
+  
+  $(document).ready(function(){
+    var property = <%= raw @property.to_json %>    // pass ruby variable to javascript
+    gmap_show(property);    // init show map for company card (only print marker)
+  });
+
+</script>
+<%= link_to "تعديل" , edit_property_path(@property), :class => "btn btn-inverse" %>

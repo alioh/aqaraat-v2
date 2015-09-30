@@ -4,6 +4,8 @@
 			<div class="panel-heading">صفحة العقار</div>
 				<div class="panel-body">
 					<div class="container">
+
+					<div class="col-xs-12 col-sm-6 col-lg-9 pull-right">
 					  <%= form_for @property do |f| %>
 						<div class="row">
 							<div class="form-group">
@@ -58,7 +60,23 @@
 						<%= f.submit "حفظ", :class => "btn btn-inverse" %>
 						</div>
 
+						
+						</div>
+						<div class="col-xs-6 col-lg-3">
+							موقع العقار
+							<div id="map" style="width: 550px; height: 350px;"></div>
+							<%= f.hidden_field :lat, id: 'map_lat' %>
+						  <%= f.hidden_field :lng, id: 'map_lng' %>
+						  <%= f.submit 'CREATE' %>
+						</div>
 						<% end %>
+						<script>
+  
+					  $(document).ready(function(){
+					    gmap_form(null);    // form map for new view (print nothing with possibility of put marker)
+					  });
+
+					</script>
 					</div>
 				</div>
 			</div>
