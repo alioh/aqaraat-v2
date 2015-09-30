@@ -4,8 +4,6 @@
 			<div class="panel-heading">صفحة العقار</div>
 				<div class="panel-body">
 					<div class="container">
-
-					<div class="col-xs-12 col-sm-6 col-lg-8 pull-right">
 					  <%= form_for @property do |f| %>
 						<div class="row">
 							<div class="form-group">
@@ -51,34 +49,32 @@
 						</div>
 
 						<div class="row">
-								<div class="col-lg-10 pull-right">
+							<div class="col-lg-10 pull-right">
 								<%= f.text_area :description, rows: 3, placeholder: "عن العقار \nأعطِ معلومات عن العقار", class: "form-control" %>
 							</div>
 						</div>
 
-						<div class="actions col-lg-10 pull-right">
-						<%= f.submit "حفظ", :class => "btn btn-inverse" %>
-						</div>
-
-						
-						</div>
-						<div class="col-xs-12 col-sm-6 col-lg-4">
+						<div class="row">
+							<div class="col-lg-7 pull-right">
 							موقع العقار
 							<div id="map" style="width: 550px; height: 350px; align: right; "></div>
 							<%= f.hidden_field :lat, id: 'map_lat' %>
 						  <%= f.hidden_field :lng, id: 'map_lng' %>
-						  <%= f.submit 'CREATE' %>
+							<script>
+						  $(document).ready(function(){
+						    gmap_form(null);    // form map for new view (print nothing with possibility of put marker)
+						  });
+							</script>
+							</div>
 						</div>
+						</div>
+							
+						<div class="actions pull-right">
+						<%= f.submit "حفظ", :class => "btn btn-inverse" %>
 						<% end %>
-						<script>
-  
-					  $(document).ready(function(){
-					    gmap_form(null);    // form map for new view (print nothing with possibility of put marker)
-					  });
-
-					</script>
+						</div>
 					</div>
-				</div>
 			</div>
 		</div>
+	</div>
 </div>

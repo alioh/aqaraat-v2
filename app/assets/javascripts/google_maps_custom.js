@@ -9,7 +9,7 @@ function gmap_show(company) {
         "lat": company.lat,    // coordinates from parameter company
         "lng": company.lng,
         "picture": {    // setup marker icon
-          "url": 'http://www.planet-action.org/img/2009/interieur/icons/orange-dot.png',
+          "url": "https://upload.wikimedia.org/wikipedia/commons/0/02/Dot0.png",
           "width":  32,
           "height": 32
         }
@@ -17,7 +17,7 @@ function gmap_show(company) {
     ]);
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
-    handler.getMap().setZoom(12);    // set the default zoom of the map
+    handler.getMap().setZoom(18);    // set the default zoom of the map
   });
 }
 
@@ -30,7 +30,7 @@ function gmap_form(company) {
           "lat": company.lat,
           "lng": company.lng,
           "picture": {
-            "url": 'http://www.planet-action.org/img/2009/interieur/icons/orange-dot.png',
+            "url": 'https://upload.wikimedia.org/wikipedia/commons/0/02/Dot0.png',
             "width":  32,
             "height": 32
           }
@@ -38,12 +38,12 @@ function gmap_form(company) {
       ]);
       handler.bounds.extendWith(markers);
       handler.fitMapToBounds();
-      handler.getMap().setZoom(12);
+      handler.getMap().setZoom(10);
     }
     else {    // show the empty map
       handler.fitMapToBounds();
-      handler.map.centerOn([52.10, 19.30]);
-      handler.getMap().setZoom(6);
+      handler.map.centerOn([24.76, 46.89]);   // default location
+      handler.getMap().setZoom(10);
     }
   });
 
