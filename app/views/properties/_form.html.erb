@@ -19,6 +19,7 @@
 							<div class="form-group">
 								<div class="col-lg-10 pull-right">
 									<%= f.text_field :city, placeholder: "المدينه", class: "form-control" %>
+									<% test %>
 								</div>
 							</div>
 						</div>
@@ -40,7 +41,7 @@
 									</div>
 								</div>
 								<div class="col-md-3 pull-right">
-									نوع العقار: 
+									نوع العقار:
 									<%= f.select :property_type, [["شقه", "شقه"], ["منزل", "منزل"]], id: "property_type", prompt: "إختر..", class: "form-control" %>
 								</div>
 								<div class="col-md-4 pull-right">
@@ -60,7 +61,7 @@
 						<%= f.submit "حفظ", :class => "btn btn-inverse" %>
 						</div>
 
-						
+
 						</div>
 						<div class="col-xs-6 col-lg-3">
 							موقع العقار
@@ -71,7 +72,7 @@
 						</div>
 						<% end %>
 						<script>
-  
+
 					  $(document).ready(function(){
 					    gmap_form(null);    // form map for new view (print nothing with possibility of put marker)
 					  });
