@@ -4,7 +4,7 @@
 			<div class="panel-heading">صفحة العقار</div>
 				<div class="panel-body">
 					<div class="container-fluid">
-					  <%= form_for @property do |f| %>
+					  <%= form_for @property, html: {multipart: true} do |f| %>
 						<div class="row">
 							<div class="form-group">
 								<div class="col-lg-10 pull-right">
@@ -38,7 +38,7 @@
 									</div>
 								</div>
 								<div class="col-md-3 pull-right">
-									نوع العقار: 
+									نوع العقار:
 									<%= f.select :property_type, [["شقه", "شقه"], ["منزل", "منزل"]], id: "property_type", prompt: "إختر..", class: "form-control" %>
 								</div>
 								<div class="col-md-4 pull-right">
@@ -55,6 +55,21 @@
 						</div>
 
 						<div class="row">
+							<div class="form-group">
+								<div class="col-lg-10 pull-right">
+									<!-- <span class="btn-file"> -->
+										<!-- <i class="mdi-file-cloud-upload"></i> رفع صوره -->
+		                <!-- <input type="text" readonly="" class="form-control floating-label" placeholder="رفع صوره...">
+		                <input type="file" id="inputFile" multiple=""> -->
+										<%= file_field_tag "images[]", type: :file, multiple: true %>
+									<!-- </span> -->
+				        </div>
+							</div>
+						</div>
+
+						<div id="photos"><%= render 'photos/list' %></div>
+
+						<div class="row">
 							<div class="col-xs-12 col-sm-6 col-lg-10 pull-right">
 							موقع العقار
 							<div id="map" class="Flexible-container"></div>
@@ -66,11 +81,9 @@
 						  });
 							</script>
 						</div>
-							
-						<div class="actions pull-right">
-						<%= f.submit "حفظ", :class => "btn btn-inverse" %>
-						
-						</div>
+					</div>
+					<div class="actions pull-right">
+					<%= f.submit "حفظ", :class => "btn btn-inverse" %>
 					</div>
 				<% end %>
 			</div>

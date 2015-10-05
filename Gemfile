@@ -18,6 +18,7 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'toastr-rails'
 gem 'gmaps4rails'
+gem 'paperclip'
 # ---------------------------------------------- #
 
 

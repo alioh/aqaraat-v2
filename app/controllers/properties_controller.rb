@@ -1,5 +1,5 @@
 class PropertiesController < ApplicationController
-  before_action :set_property, only: [:show, :edit, :update]  # instead of repeating the same code in each method, we create one method that do the same thing, 
+  before_action :set_property, only: [:show, :edit, :update]  # instead of repeating the same code in each method, we create one method that do the same thing,
                                                               # and instead of calling the same method in show/edit/update, we created an action that call that
                                                               # method automatically whenever we visit those pages or do those actions.
   before_action :authenticate_user!
@@ -10,11 +10,11 @@ class PropertiesController < ApplicationController
 
   def show
     @property = Property.find(params[:id])
-    @hash = Gmaps4rails.build_markers @property do |u, m|
-      m.lat u.geocode.first rescue nil
-      m.lng u.geocode.second rescue nil
-      m.json({ :id => u.id })
-    end
+    # @hash = Gmaps4rails.build_markers @property do |u, m|
+    #   m.lat u.geocode.first rescue nil
+    #   m.lng u.geocode.second rescue nil
+    #   m.json({ :id => u.id })
+    @photos = @property.photos
 
   end
 
@@ -25,18 +25,36 @@ class PropertiesController < ApplicationController
   def create
     @property = current_user.properties.build(property_params)
     if @property.save
-      redirect_to @property, notice: "تم الحفظ"
+      if params[:images]
+        params[:images].each do |image|
+          @property.photos.create(image: image)
+        end
+      end
+
+      @photos = @property.photos
+      redirect_to edit_property_path(@property), notice: "تم الحفظ"
     else
       render :new
     end
   end
 
   def edit
+    if current_user.id == @property.user.id
+      @photos = @property.photos
+    else
+      redirect_to root_path, notice: "ليس لديك صلاحيات تعديل هذه الصفحه"
+    end
   end
 
   def update
     if @property.update(property_params)
-      redirect_to @property, notice: "تم التحديث"
+      if params[:images]
+        params[:images].each do |image|
+          @property.photos.create(image: image)
+        end
+      end
+
+      redirect_to edit_property_path(@property), notice: "تم التحديث"
     else
       render :edit
     end

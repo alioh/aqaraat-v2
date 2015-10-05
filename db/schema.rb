@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150927004234) do
+ActiveRecord::Schema.define(version: 20151005020702) do
 
   create_table "Bills", force: :cascade do |t|
     t.date     "due_date"
@@ -29,6 +29,18 @@ ActiveRecord::Schema.define(version: 20150927004234) do
   add_index "Bills", ["property_id"], name: "index_bills_on_property_id_id"
   add_index "Bills", ["resident_id"], name: "index_bills_on_resident_id_id"
   add_index "Bills", ["user_id"], name: "index_bills_on_user_id_id"
+
+  create_table "photos", force: :cascade do |t|
+    t.integer  "property_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
+  add_index "photos", ["property_id"], name: "index_photos_on_property_id"
 
   create_table "properties", force: :cascade do |t|
     t.string   "address"

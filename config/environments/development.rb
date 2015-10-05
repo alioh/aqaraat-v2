@@ -38,15 +38,17 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
+  # ------------------------------------------------
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :address   => "smtp.mandrillapp.com",
     :port      => 587,
     :enable_starttls_auto => true,
-    :user_name => "to-be-filled-later",
-    :password  => "to-be-filled-later",
+    :user_name => "to-be-added-later",
+    :password  => "to-be-added-later",
     :authentication => 'login'
     }
+  # ------------------------------------------------
   # {
   #   address: "smtp.mandrillapp.com",
   #   port: 587,
