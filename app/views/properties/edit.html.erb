@@ -76,17 +76,16 @@
 
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 col-md-12 pull-right">
-						<div class="form-group">
 							<label>موقع العقار</label>
 							<div id="map" class="Flexible-container"></div>
 							<%= f.hidden_field :lat, id: 'map_lat' %>
 						  <%= f.hidden_field :lng, id: 'map_lng' %>
 							<script>
 						  $(document).ready(function(){
-						    gmap_form(null);    // form map for new view (print nothing with possibility of put marker)
+								var property = <%= raw @property.to_json %>
+						    gmap_form(property);    // form map for new view (print nothing with possibility of put marker)
 						  });
 							</script>
-						</div>
 					</div>
 				</div>
 				<div class="actions pull-right">
