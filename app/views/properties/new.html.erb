@@ -1,77 +1,83 @@
-<div class="row">
-	<div class="container-fluid" style="direction: rtl;">
-		<div class="panel panel-default">
-			<div class="panel-heading">صفحة العقار</div>
-				<div class="panel-body">
-					<div class="container-fluid">
-					  <%= form_for @property, html: {multipart: true} do |f| %>
-						<div class="row">
-							<div class="form-group">
-								<div class="col-lg-10 pull-right">
-									<%= f.text_field :address,"size" => 50, placeholder: "العنوان", class: "form-control" %>
-								</div>
+<div class="panel panel-default" style="direction: rtl;">
+	<div class="panel-heading">صفحة العقار</div>
+		<div class="panel-body">
+			<div class="container">
+				<%= form_for @property, html: {multipart: true} do |f| %>
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 form-group">
+						<label>العنوان:</label>
+							<%= f.text_field :address,"size" => 50, placeholder: "address", class: "form-control" %>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-12 col-sm-6 col-md-6 pull-right">
+						<div class="form-group">
+						<label>المدينه:</label>
+						<%= f.text_field :city, placeholder: "city",class: "form-control" %>
+					</div>
+				</div>
+
+					<div class="col-xs-12 col-sm-6 col-md-6 pull-right">
+						<div class="form-group">
+						<label>الدوله:</label>
+						<%= f.text_field :country, placeholder: "country", class: "form-control" %>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-12 col-sm-6 col-md-6 pull-right">
+						<div class="form-group">
+							<label>الإيجار الشهري:</label>
+							<div class="input-group">
+								<%= f.text_field :monthly_rent, placeholder: "rent", class: "form-control" %>
+								<div class="input-group-addon">ريال</div>
 							</div>
 						</div>
+					</div>
 
-						<div class="row">
-							<div class="form-group">
-								<div class="col-lg-10 pull-right">
-									<%= f.text_field :city, placeholder: "المدينه", class: "form-control" %>
-								</div>
-							</div>
+					<div class="col-xs-12 col-sm-6 col-md-6 select pull-right">
+						<div class="form-group">
+							<label>نوع العقار:</label>
+							<%= f.select :property_type, [["شقه", "شقه"], ["منزل", "منزل"]], id: "property_type", prompt: "إختر..", class: "form-control" %>
 						</div>
+					</div>
+				</div>
 
-						<div class="row">
-							<div class="form-group">
-								<div class="col-lg-10 pull-right">
-									<%= f.text_field :country, placeholder: "الدوله", class: "form-control" %>
-								</div>
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 pull-right">
+						<div class="form-group">
+							<label>عن العقار:</label>
+							<div class="pull-left">
+							<label>هل العقار شاغر؟</label>
+							<%= f.check_box :vacancy %>
 							</div>
+							<%= f.text_area :description, rows: 3, placeholder: "-about أعطِ معلومات عن العقار", class: "form-control" %>
 						</div>
+					</div>
+				</div>
 
-						<div class="row">
-							<div class="form-group">
-								<div class="col-lg-4 pull-right">
-									<div class="input-group">
-									<%= f.text_field :monthly_rent, placeholder: "الإيجار الشهري", class: "form-control" %>
-									<span class="input-group-addon">ريال</span>
-									</div>
-								</div>
-								<div class="col-md-3 pull-right">
-									نوع العقار:
-									<%= f.select :property_type, [["شقه", "شقه"], ["منزل", "منزل"]], id: "property_type", prompt: "إختر..", class: "form-control" %>
-								</div>
-								<div class="col-md-4 pull-right">
-									شاغر
-									<%= f.check_box :vacancy %>
-								</div>
-							</div>
-						</div>
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 pull-right">
+						<div class="form-group">
+							<span class="btn btn-default btn-file">
+								<i class="glyphicon glyphicon-cloud-upload"></i> رفع صوره
+				        <!-- <input type="text" readonly="" class="form-control floating-label" placeholder="رفع صوره...">
+				        <input type="file" id="inputFile" multiple=""> -->
+								<%= file_field_tag "images[]", type: :file, multiple: true %>
+							<!-- </span> -->
+							</span>
+				    </div>
+					</div>
+				</div>
 
-						<div class="row">
-							<div class="col-lg-10 pull-right">
-								<%= f.text_area :description, rows: 3, placeholder: "عن العقار \nأعطِ معلومات عن العقار", class: "form-control" %>
-							</div>
-						</div>
+				<div id="photos"><%= render 'photos/list' %></div>
 
-						<div class="row">
-							<div class="form-group">
-								<div class="col-lg-10 pull-right">
-									<!-- <span class="btn-file"> -->
-										<!-- <i class="mdi-file-cloud-upload"></i> رفع صوره -->
-		                <!-- <input type="text" readonly="" class="form-control floating-label" placeholder="رفع صوره...">
-		                <input type="file" id="inputFile" multiple=""> -->
-										<%= file_field_tag "images[]", type: :file, multiple: true %>
-									<!-- </span> -->
-				        </div>
-							</div>
-						</div>
-
-						<div id="photos"><%= render 'photos/list' %></div>
-
-						<div class="row">
-							<div class="col-xs-12 col-sm-6 col-lg-10 pull-right">
-							موقع العقار
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 pull-right">
+						<div class="form-group">
+							<label>موقع العقار</label>
 							<div id="map" class="Flexible-container"></div>
 							<%= f.hidden_field :lat, id: 'map_lat' %>
 						  <%= f.hidden_field :lng, id: 'map_lng' %>
@@ -82,13 +88,11 @@
 							</script>
 						</div>
 					</div>
-					<div class="actions pull-right">
-					<%= f.submit "حفظ", :class => "btn btn-inverse" %>
-					</div>
+				</div>
+				<div class="actions pull-right">
+				<%= f.submit "حفظ", class: "btn btn-primary" %>
+				</div>
 				<% end %>
-			</div>
 		</div>
 	</div>
-</div>
-</div>
 </div>

@@ -1,10 +1,10 @@
 <div class="row">
 	<div class="col-md-2">
-    <div class="btn-group btn-group-vertical">
-      <a href=<%= properties_path %> class="btn btn-default">عقاراتك</a>
-      <a href=<%= bills_path %> class="btn btn-default">فواتيرك</a>
-      <a href=<%= residents_path %> class="btn btn-default">عملاءك</a>
-    </div>
+    <ul class="sidebar-list text-right">
+      <li class="sidebar-item"><%= link_to "عقاراتك", properties_path, class: "sidebar-link active" %></li>
+      <li class="sidebar-item"><%= link_to "فواتيرك", bills_path, class: "sidebar-link" %></li>
+      <li class="sidebar-item"><%= link_to "عملائك", residents_path, class: "sidebar-link" %></li>
+    </ul>
   </div>
 
 	<div class="col-md-10" style="direction: rtl;">

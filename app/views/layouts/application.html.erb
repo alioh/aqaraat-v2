@@ -13,13 +13,14 @@
 
 	<body>
 	<%= render "shared/navbar" %>
-	<div class="container">
+
 		<% flash.each do |name, msg| %>
 			<div class="alert alert-success text-right" style="direction: rtl;">
 				<button type="button" class="close pull-left" data-dismiss="alert">×</button>
 				<%= msg %>
 			</div>
 		<% end %>
+	<div class="container">
 		<%= yield %>
 	</div>
 
@@ -34,7 +35,7 @@
 		$(function() {
 		  // Setup drop down menu
 		  $('.dropdown-toggle').dropdown();
-		 
+
 		  // Fix input element click problem
 		  $('.dropdown input, .dropdown label').click(function(e) {
 		    e.stopPropagation();
