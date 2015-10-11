@@ -24,9 +24,9 @@
         <a href="#" data-target="#" class="dropdown-toggle" data-toggle="dropdown"><b class="caret"></b> تسجيل الدخول</a>
         <ul class="dropdown-menu" style="padding: 5px 10px 5px 10px;">
         <%= form_for("user", :url => user_session_path) do |f| %>
-          <li><%= f.text_field :email, :class => "form-control text-right", :placeholder => "البريد الإلكتروني" %></li>
-          <li><%= f.text_field :password, :type => "password", :class => "form-control validate text-right", :placeholder => "كلمة المرور" %></li>
-          <li><%= f.submit "تسجيل الدخول", :class => "btn btn-inverse" %></li>
+          <li style="margin: 5px;"><%= f.text_field :email, :class => "form-control", :placeholder => "البريد الإلكتروني" %></li>
+          <li style="margin: 5px;"><%= f.text_field :password, :type => "password", :class => "form-control validate", :placeholder => "كلمة المرور" %></li>
+          <li style="margin: 5px;"><%= f.submit "تسجيل الدخول", :class => "btn btn-block" %></li>
           <% end %>
         </ul>
       </li>

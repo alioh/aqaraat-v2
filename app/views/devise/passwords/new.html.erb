@@ -1,16 +1,21 @@
-<h2>Forgot your password?</h2>
+<div class="row">
+  <div class="panel panel-default" style="direction: rtl;">
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <div class="panel-heading">نسيت كلمة المرور؟</div>
+      <div class="panel-body">
+      	<%= devise_error_messages! %>
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 form-group pull-right">
+              <label>البريد الإلكتروني</label>
+              <%= f.email_field :email, :type => "email", autofocus: true, :class => "form-control validate text-right" %>
+            </div>
+          </div>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+          <div class="actions pull-right">
+            <%= f.submit "إرسال خطوات تفعيل الحساب", :class => "btn" %>
+          </div>
+          <% end %>
+          <%= render "devise/shared/links" %>
+    	</div>
+  	</div>
+</div>

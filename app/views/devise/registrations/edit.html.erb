@@ -1,41 +1,67 @@
 <div class="row">
-    <div class="col-xs-12 col-sm-8 col-md-6 pull-right" style="direction: rtl;">
-    <p>إدارة الحساب:</p>
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-      <%= devise_error_messages! %>
+  <div class="panel panel-default" style="direction: rtl;">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <div class="panel-heading">إدارة الحساب:</div>
+      <div class="panel-body">
+          <%= devise_error_messages! %>
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 form-group pull-right">
+              <label>الإسم الكامل</label>
+              <%= f.text_field :fullname, autofocus: true, :class => "form-control validate text-right" %>
+            </div>
+          </div>
 
-      <div class="field">
-        <%= f.text_field :fullname, autofocus: true, :class => "form-control validate text-right", :placeholder => "الإسم الكامل" %>
-      </div>
-      <div class="field">
-        <%= f.text_field :phone_number, autofocus: true, :class => "form-control validate text-right", :placeholder => "رقم الهاتف" %>
-      </div>
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 form-group pull-right">
+              <label>رقم الهاتف</label>
+              <%= f.text_field :phone_number, autofocus: true, :class => "form-control validate text-right" %>
+            </div>
+          </div>
 
-      <div class="field">
-        <%= f.text_field :email, :type => "email", autofocus: true, :class => "form-control validate text-right", :placeholder => "البريد الإلكتروني" %>
-      </div>
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 form-group pull-right">
+              <label>البريد الإلكتروني</label>
+              <%= f.text_field :email, :type => "email", autofocus: true, :class => "form-control validate text-right" %>
+            </div>
+          </div>
 
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-      <% end %>
-      
-      <div class="field">
-      <%= f.text_field :password, :type => "password", autocomplete: "off", :class => "form-control validate text-right", :placeholder => "كلمة مرور جديده" %> <i>(أترك الحقل فارغ إذا كنت لا ترغب بتغير كلمة المرور)</i><br />
-      </div>
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div>حالياً ينتظر تفعيل البريد الإلكتروني: <%= resource.unconfirmed_email %></div>
+          <% end %>
 
-      <div class="field">
-        <%= f.text_field :password_confirmation, :type => "password", autocomplete: "off", :class => "form-control validate text-right", :placeholder => "تأكيد كلمة المرور" %>
-      </div>
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 form-group pull-right">
+              <label>كلمة المرور الجديده</label>
+              <%= f.text_field :password, :type => "password", autocomplete: "off", :class => "form-control validate text-right" %>
+              <i>(أترك الحقل فارغ إذا كنت لا ترغب بتغير كلمة المرور)</i>
+            </div>
+          </div>
 
-      <div class="field">
-      <%= f.text_field :current_password, :type => "password", autocomplete: "off", :class => "form-control validate text-right", :placeholder => "كلمة المرور الحاليه" %> <i>(لحفظ التعديلات على حسابك، تحتاج لكتابة كلمة المرور الحاليه)</i><br />
-      </div>
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 form-group pull-right">
+              <label>تأكيد كلمة المرور الجديده</label>
+              <%= f.text_field :password_confirmation, :type => "password", autocomplete: "off", :class => "form-control validate text-right" %>
+            </div>
+          </div>
 
-      <div class="actions pull-right">
-        <%= f.submit "حفظ", :class => "btn btn-inverse" %>
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 form-group pull-right">
+              <label>كلمة المرور الحاليه</label>
+              <%= f.text_field :current_password, :type => "password", autocomplete: "off", :class => "form-control validate text-right" %>
+              <i>(لحفظ التعديلات على حسابك، تحتاج لكتابة كلمة المرور الحاليه)</i>
+            </div>
+          </div>
+
+          <div class="actions pull-right">
+            <%= f.submit "حفظ", :class => "btn" %>
+          </div>
+          <% end %>
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 form-group pull-right">
+          <%= button_to "حذف الحساب", registration_path(resource_name), data: { confirm: "هل أنت متأكد؟" }, :class => "btn btn-danger", method: :delete %> 
+            </div>
+          </div>
+          <%= button_to "العوده", :back, :class => "btn" %>
       </div>
-      <% end %>
-      <%= button_to "حذف الحساب", registration_path(resource_name), data: { confirm: "هل أنت متأكد؟" }, :class => "btn btn-danger", method: :delete %>
-        <%= link_to "العوده", :back, :class => "btn btn-flat btn-default" %>
-    </div>
+  </div>
 </div>

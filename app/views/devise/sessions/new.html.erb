@@ -1,26 +1,38 @@
 <div class="row">
-  <div class="col-xs-12 col-sm-8 col-md-6 pull-right" style="direction: rtl;">
-    <p>تسجيل الدخول</p>
+  <div class="panel panel-default" style="direction: rtl;">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="panel-heading">تسجيل الدخول</div>
+      <div class="panel-body">
 
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="field">
-        <%= f.text_field :email, :type => "email", autofocus: true, :class => "form-control validate text-right", :placeholder => "البريد الإلكتروني" %>
-      </div>
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 form-group pull-right">
+              <label>البريد الإلكتروني</label>
+              <%= f.text_field :email, :type => "email", autofocus: true, :class => "form-control validate text-right" %>
+            </div>
+          </div>
 
-      <div class="field">
-      <%= f.text_field :password, :type => "password", autocomplete: "off", :class => "form-control validate text-right", :placeholder => "كلمة مرور جديده" %>
-      </div>
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 form-group pull-right">
+              <label>كلمة المرور</label>
+              <%= f.text_field :password, :type => "password", autocomplete: "off", :class => "form-control validate text-right" %>
+            </div>
+          </div>
 
-      <% if devise_mapping.rememberable? -%>
-        <div class="field">
-          <%= f.check_box :remember_me %> تذكرني
-        </div>
-      <% end %>
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 form-group pull-right">
+              <% if devise_mapping.rememberable? -%>
+                <div class="field">
+                  <%= f.check_box :remember_me %> تذكرني
+                </div>
+              <% end %>
+            </div>
+          </div>
 
-      <div class="actions pull-right">
-        <%= f.submit "تسجيل الدخول", :class => "btn btn-inverse" %>
-      </div>
-    <% end %>
-    <%= render "devise/shared/links" %>
+          <div class="actions pull-right">
+            <%= f.submit "تسجيل الدخول", :class => "btn" %>
+          </div>
+          <% end %>
+          <%= render "devise/shared/links" %>
+    </div>
   </div>
 </div>

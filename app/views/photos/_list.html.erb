@@ -3,13 +3,13 @@
 <div class="row">
   <% @photos.each do |photo| %>
   <div class="col-xs-12 col-sm-4 col-md-4">
-    <div class="panel panel-default pull-right">
+    <div class="panel panel-default">
       <div class="panel-heading preview">
         <%= image_tag photo.image.url() %>
       </div>
       <div class="panel-body">
         <span class="pull-right">
-          <%= link_to photo, remote: true, method: :delete,  data: { confirm: 'Are you sure?' } do %>
+          <%= link_to photo, remote: true, method: :delete,  data: { confirm: 'هل انت متأكد من حذف هذه الصوره؟' } do %>
             <i class="glyphicon glyphicon-remove"></i>
           <% end %>
         </span>
