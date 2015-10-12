@@ -1,0 +1,71 @@
+<div class="panel panel-default" style="direction: rtl;">
+	<div class="panel-heading"><%= @title %> </div>
+		<div class="panel-body">
+				<%= form_for @bill, html: {multipart: true} do |f| %>
+				<div class="row">
+					<div class="col-xs-12 col-sm-6 col-md-6 select pull-right">
+						<div class="form-group">
+							<label>العقار:</label>
+								<%= f.collection_select(:property_id, current_user.properties, :id, :address, {:prompt => 'None'}) %>
+						</div>
+					</div>
+
+					<div class="col-xs-12 col-sm-6 col-md-6 select pull-right">
+						<div class="form-group">
+							<label>العميل:</label>
+							<%= f.collection_select(:property_id, current_user.residents, :id, :address, {:prompt => 'None'}) %>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-12 col-sm-6 col-md-6 pull-right">
+						<div class="form-group">
+							<label>المبلغ:</label>
+							<div class="input-group">
+								<%= f.text_field :amount, placeholder: "amount", class: "form-control" %>
+								<div class="input-group-addon">ريال</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-xs-12 col-sm-6 col-md-6 select pull-right">
+						<div class="form-group">
+							<label>نوع الفاتوره:</label>
+							<%= f.select :bill_type, [["كهرباء", "كهرباء"], ["مياه", "مياه"], ["أخرى", "أخرى"]], id: "bill_type", prompt: "إختر..", class: "form-control" %>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 pull-right">
+						<div class="form-group">
+							<label>عن الفاتوره:</label>
+							<div class="pull-left">
+							<label>مدفوعه؟</label>
+							<%= f.check_box :bill_status %>
+							</div>
+							<%= f.text_area :description, rows: 3, placeholder: "-about أعطِ معلومات عن الفاتوره", class: "form-control" %>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 pull-right">
+						<div class="form-group">
+							<span class="btn btn-default btn-file">
+								<i class="glyphicon glyphicon-cloud-upload"></i> رفع صوره
+								<%= file_field_tag "images[]", type: :file, multiple: true %>
+							</span>
+				    </div>
+					</div>
+				</div>
+
+				<div id="photos"><%= render 'photos/list' %></div>
+
+				<div class="actions pull-right">
+				<%= f.submit "حفظ", class: "btn btn-primary" %>
+				</div>
+				<% end %>
+	</div>
+</div>

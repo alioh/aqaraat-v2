@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151005020702) do
+ActiveRecord::Schema.define(version: 20151012100439) do
 
   create_table "Bills", force: :cascade do |t|
     t.date     "due_date"
@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 20151005020702) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "resident_id"
+    t.integer  "bill_id"
   end
 
   add_index "photos", ["property_id"], name: "index_photos_on_property_id"
