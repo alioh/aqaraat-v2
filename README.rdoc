@@ -12,7 +12,7 @@ Things that this version will support:
 
 * You can make your property page public and show it to customers.
 
-* Add images to a property.
+* Add images to a property. [ ✓ ]
 
 * Print bills or add image/pdf copy to a bill page.
 
@@ -32,11 +32,11 @@ Feel free to contact me: www.alioh.com, https://twitter.com/alioh .
 
 * يمكنك نشر ومشاركة صفحة العقار مع العملاء.
 
-* إضافة صور للعقارات.
+* إضافة صور للعقارات. [ ✓ ]
 
 * طباعة الفواتير او تحميلها لصفحة الفواتير كصورة او ملف PDF.
 
 يمكن التواصل معي عبر: www.alioh.com, https://twitter.com/alioh .
 
 Progress:
-███████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ 20%
+█████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ 35%
