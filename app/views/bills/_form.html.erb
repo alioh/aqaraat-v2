@@ -19,7 +19,7 @@
 				</div>
 
 				<div class="row">
-					<div class="col-xs-12 col-sm-6 col-md-6 pull-right">
+					<div class="col-xs-12 col-sm-4 col-md-4 pull-right">
 						<div class="form-group">
 							<label>المبلغ:</label>
 							<div class="input-group">
@@ -29,10 +29,19 @@
 						</div>
 					</div>
 
-					<div class="col-xs-12 col-sm-6 col-md-6 select pull-right">
+					<div class="col-xs-12 col-sm-4 col-md-4 select">
 						<div class="form-group">
 							<label>نوع الفاتوره:</label>
 							<%= f.select :bill_type, [["كهرباء", "كهرباء"], ["مياه", "مياه"], ["أخرى", "أخرى"]], id: "bill_type", prompt: "إختر..", class: "form-control" %>
+						</div>
+					</div>
+
+					<div class="col-xs-12 col-sm-4 col-md-4">
+						<div class="form-group">
+							<label>تاريخ الإستحقاق:</label>
+							<div class="input-group">
+								<%= f.text_field :due_date, placeholder: "due-date", class: "form-control" %>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -69,3 +78,11 @@
 				<% end %>
 	</div>
 </div>
+
+<script>
+	$(function(){
+		$('#bill_due_date').datepicker({
+			dateFormat: 'dd-mm-yy'
+		});
+	})
+</script>

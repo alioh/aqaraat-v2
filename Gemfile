@@ -19,6 +19,7 @@ gem 'devise-i18n'
 gem 'toastr-rails'
 gem 'gmaps4rails'
 gem 'paperclip'
+gem 'jquery-ui-rails'
 # ---------------------------------------------- #
 
 
