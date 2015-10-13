@@ -5,8 +5,7 @@ class BillsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @bills = current_user.bills
-
+    @bills = current_user.bills.page(params[:page]).per(10)
   end
 
   def show

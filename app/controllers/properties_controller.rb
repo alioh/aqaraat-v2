@@ -5,7 +5,7 @@ class PropertiesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @properties = current_user.properties.page(params[:page]).per(10)
+    @properties = current_user.properties.page(params[:page]).per(10)   # page(params[:page]).per(10) this is the pagination part
 
   end
 

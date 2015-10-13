@@ -1,2 +1,96 @@
-<h1>Bills#index</h1>
-<p>Find me in app/views/bills/index.html.erb</p>
+<div class="row">
+	<div class="col-md-2">
+    <ul class="sidebar-list text-right">
+      <li class="sidebar-item"><%= link_to "فواتيرك", bills_path, class: "sidebar-link active" %></li>
+      <li class="sidebar-item"><%= link_to "عقاراتك", properties_path, class: "sidebar-link" %></li>
+      <li class="sidebar-item"><%= link_to "عملائك", residents_path, class: "sidebar-link" %></li>
+    </ul>
+  </div>
+	<div class="col-md-10" style="direction: rtl;">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				فواتيرك
+			</div>
+
+			<div class="panel-body">
+				<% count = 1 %>
+				<table id="example" class="table table-striped table-hover text-right table-bordered" cellspacing="0" width="100%" >
+					<thead>
+								<tr>
+									<th class="text-right">#</th>
+									<th class="text-right">الفاتوره على</th>
+									<th class="text-right">العنوان او إسم العميل</th>
+									<th class="text-right">تاريخ الإستحقاق</th>
+									<th class="text-right">نوع الفاتوره</th>
+									<th class="text-right">الحاله</th>
+									<th class="text-right">رابط</th>
+								</tr>
+					</thead>
+					<% @bills.each do |p| %>
+					<tbody>
+						<% if !p.bill_status and p.due_date < Time.zone.now %>
+						<tr class="danger">
+							<td><%= count %></td>
+							<td>
+									<% if p.property_id == "NULL" %>
+									<%= "عميل" %>
+									<% else %>
+									<%= "عقار" %>
+									<% end %>
+							</td>
+							<td>
+									<% if p.property_id == "NULL" %>
+									<%=  bill_to(p.resident_id) %>
+									<% else %>
+									<%=  property_id_to_address(p.property_id) %>
+									<% end %>
+							</td>
+							<td><%= p.due_date %></td>
+							<td><%= p.bill_type %></td>
+							<td><% if p.bill_status %>
+										<%= "مدفوعه" %>
+									<% else %>
+										<%= "غير مدفوعه" %>
+									<% end %>
+							</td>
+							<td><%= link_to "صفحة الفاتوره", edit_bill_path(p) %></td>
+						</tr>
+						<% else %>
+						<tr>
+							<td><%= count %></td>
+							<td>
+									<% if p.property_id == "NULL" %>
+									<%= "عميل" %>
+									<% else %>
+									<%= "عقار" %>
+									<% end %>
+							</td>
+							<td>
+									<% if p.property_id == "NULL" %>
+									<%=  bill_to(p.resident_id) %>
+									<% else %>
+									<%=  property_id_to_address(p.property_id) %>
+									<% end %>
+							</td>
+							<td><%= p.due_date %></td>
+							<td><%= p.bill_type %></td>
+							<td><% if p.bill_status %>
+										<%= "مدفوعه" %>
+									<% else %>
+										<%= "غير مدفوعه" %>
+									<% end %>
+							</td>
+							<td><%= link_to "صفحة الفاتوره", edit_bill_path(p) %></td>
+						</tr>
+					</tbody>
+					<% count += 1 %>
+					<% end %>
+					<% end %>
+					</table>
+					<div style="direction: ltr">
+					<%= paginate @bills %> <!-- pagination part, you can put this anywhere -->
+					</div>
+			</div>
+		</div>
+	</div>
+</div>
