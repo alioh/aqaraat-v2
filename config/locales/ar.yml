@@ -1,4 +1,11 @@
 ar:
+  views:
+    pagination:
+      previous: "&lt;"
+      next: "&gt;"
+      truncate: "..."
+      last: "آخر صفحه"
+      first: "أول صفحه"
   devise:
     confirmations:
       confirmed: "تمّ تأكيد الحساب بنجاح، وتمّ تسجيل الدّخول."

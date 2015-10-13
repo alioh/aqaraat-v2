@@ -20,6 +20,7 @@ gem 'toastr-rails'
 gem 'gmaps4rails'
 gem 'paperclip'
 gem 'jquery-ui-rails'
+gem 'kaminari'
 # ---------------------------------------------- #
 
 
