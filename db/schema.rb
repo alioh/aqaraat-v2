@@ -11,9 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151012100439) do
+ActiveRecord::Schema.define(version: 20151019103117) do
 
-  create_table "Bills", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "bills", force: :cascade do |t|
     t.date     "due_date"
     t.integer  "amount"
     t.string   "bill_type"
@@ -26,9 +29,9 @@ ActiveRecord::Schema.define(version: 20151012100439) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "Bills", ["property_id"], name: "index_bills_on_property_id_id"
-  add_index "Bills", ["resident_id"], name: "index_bills_on_resident_id_id"
-  add_index "Bills", ["user_id"], name: "index_bills_on_user_id_id"
+  add_index "bills", ["property_id"], name: "index_bills_on_property_id_id", using: :btree
+  add_index "bills", ["resident_id"], name: "index_bills_on_resident_id_id", using: :btree
+  add_index "bills", ["user_id"], name: "index_bills_on_user_id_id", using: :btree
 
   create_table "photos", force: :cascade do |t|
     t.integer  "property_id"
@@ -42,7 +45,7 @@ ActiveRecord::Schema.define(version: 20151012100439) do
     t.integer  "bill_id"
   end
 
-  add_index "photos", ["property_id"], name: "index_photos_on_property_id"
+  add_index "photos", ["property_id"], name: "index_photos_on_property_id", using: :btree
 
   create_table "properties", force: :cascade do |t|
     t.string   "address"
@@ -59,7 +62,7 @@ ActiveRecord::Schema.define(version: 20151012100439) do
     t.decimal  "lng"
   end
 
-  add_index "properties", ["user_id"], name: "index_properties_on_user_id"
+  add_index "properties", ["user_id"], name: "index_properties_on_user_id", using: :btree
 
   create_table "residents", force: :cascade do |t|
     t.string   "name"
@@ -93,8 +96,8 @@ ActiveRecord::Schema.define(version: 20151012100439) do
     t.string   "phone_number"
   end
 
-  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

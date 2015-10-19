@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  due_date: 2015-09-26
+  due_date: 2015-10-18
   amount: 1
   bill_type: MyString
   bill_status: false
@@ -11,7 +11,7 @@ one:
   resident_id_id: 
 
 two:
-  due_date: 2015-09-26
+  due_date: 2015-10-18
   amount: 1
   bill_type: MyString
   bill_status: false

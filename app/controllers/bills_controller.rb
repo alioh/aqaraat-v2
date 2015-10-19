@@ -5,7 +5,7 @@ class BillsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @bills = current_user.bills.page(params[:page]).per(10)
+    @bills = current_user.bills.page(params[:page]).per(10)   # page(params[:page]).per(10) this is the pagination part
   end
 
   def show
@@ -17,7 +17,6 @@ class BillsController < ApplicationController
 
   def new
     @bill = current_user.bills.build
-    @title = "إنشاء فاتوره"
   end
 
   def create

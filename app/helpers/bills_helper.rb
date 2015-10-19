@@ -29,8 +29,7 @@ module BillsHelper
 		property_address = nil
 		property = Property.where("id= '?'", property_id)  
 		property.each { |b| 
-			property_address = b.address }
+			property_address = b.address } rescue nil
 		return property_address
 	end
-
 end

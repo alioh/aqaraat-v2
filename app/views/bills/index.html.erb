@@ -1,3 +1,4 @@
+
 <div class="row">
 	<div class="col-md-2">
     <ul class="sidebar-list text-right">
@@ -7,6 +8,16 @@
     </ul>
   </div>
 	<div class="col-md-10" style="direction: rtl;">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				إحصائيات
+			</div>
+
+			<div class="panel-body">
+			
+			</div>
+		</div>
+
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				فواتيرك
@@ -20,6 +31,7 @@
 									<th class="text-right">#</th>
 									<th class="text-right">الفاتوره على</th>
 									<th class="text-right">العنوان او إسم العميل</th>
+									<th class="text-right">المبلغ</th>
 									<th class="text-right">تاريخ الإستحقاق</th>
 									<th class="text-right">نوع الفاتوره</th>
 									<th class="text-right">الحاله</th>
@@ -45,6 +57,7 @@
 									<%=  property_id_to_address(p.property_id) %>
 									<% end %>
 							</td>
+							<td><%= p.amount %></td>
 							<td><%= p.due_date %></td>
 							<td><%= p.bill_type %></td>
 							<td><% if p.bill_status %>
@@ -72,6 +85,7 @@
 									<%=  property_id_to_address(p.property_id) %>
 									<% end %>
 							</td>
+							<td><%= p.amount %></td>
 							<td><%= p.due_date %></td>
 							<td><%= p.bill_type %></td>
 							<td><% if p.bill_status %>
