@@ -6,6 +6,7 @@ class BillsController < ApplicationController
 
   def index
     @bills = current_user.bills.page(params[:page]).per(10)   # page(params[:page]).per(10) this is the pagination part
+    @properties = current_user.properties
   end
 
   def show

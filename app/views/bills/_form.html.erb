@@ -13,7 +13,7 @@
 					<div class="col-xs-12 col-sm-6 col-md-6 select pull-right">
 						<div class="form-group">
 							<label>العميل:</label>
-							<%= f.collection_select(:property_id, current_user.residents, :id, :address, {:prompt => 'None'}) %>
+							<%= f.collection_select(:resident_id, current_user.residents, :id, :address, {:prompt => 'None'}) %>
 						</div>
 					</div>
 				</div>

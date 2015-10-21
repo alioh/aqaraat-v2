@@ -20,6 +20,8 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    active_median (0.1.2)
+      activerecord
     activejob (4.2.3)
       activesupport (= 4.2.3)
       globalid (>= 0.3.0)
@@ -112,6 +114,7 @@ GEM
       mime-types
       mimemagic (= 0.3.0)
     pg (0.18.3)
+    pg (0.18.3-x64-mingw32)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -187,6 +190,7 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
+  active_median
   bootstrap-sass (~> 3.3.5)
   byebug
   chartkick

@@ -24,6 +24,7 @@ gem 'kaminari'
 gem 'pg'
 gem 'chartkick'
 gem 'groupdate'
+gem 'active_median'
 # ---------------------------------------------- #
 
 

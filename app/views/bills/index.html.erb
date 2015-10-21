@@ -14,7 +14,7 @@
 			</div>
 
 			<div class="panel-body">
-			
+				<%= column_chart @bills.group_by_day(:due_date).sum(:amount) %>
 			</div>
 		</div>
 

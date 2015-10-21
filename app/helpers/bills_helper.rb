@@ -13,7 +13,7 @@ module BillsHelper
 		user_id = User.find(current_user)
 		properties = current_user.properties
 		properties.each { |b| 
-			pro_list << [b.address_one, b.id] }
+			pro_list << [b.address, b.id] }
 		return pro_list
 	end
 
