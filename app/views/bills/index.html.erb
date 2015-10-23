@@ -14,7 +14,8 @@
 			</div>
 
 			<div class="panel-body">
-				<%= column_chart @bills.group_by_day(:due_date).sum(:amount) %>
+				الإحصائية تظهر مجموع المبالغ المدفوعه/المستحقه في كل يوم من أيام الشهر الماضي والقادم.
+				<%= column_chart @bills.group_by_day(:due_date, format: "%d/%m/%Y", range: 1.months.ago.midnight..1.months.from_now).sum(:amount) %>
 			</div>
 		</div>
 
