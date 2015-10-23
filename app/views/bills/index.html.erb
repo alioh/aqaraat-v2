@@ -45,14 +45,16 @@
 						<tr class="danger">
 							<td><%= count %></td>
 							<td>
-									<% if p.property_id == "NULL" %>
-									<%= "عميل" %>
-									<% else %>
+									<% if p.property_id == nil && p.resident_id == nil %>
+									<%= "-" %>
+									<% elsif p.resident_id == nil %>
 									<%= "عقار" %>
+									<% else %>
+									<%= "عميل" %>
 									<% end %>
 							</td>
 							<td>
-									<% if p.property_id == "NULL" %>
+									<% if p.property_id == nil %>
 									<%=  bill_to(p.resident_id) %>
 									<% else %>
 									<%=  property_id_to_address(p.property_id) %>
@@ -73,17 +75,19 @@
 						<tr>
 							<td><%= count %></td>
 							<td>
-									<% if p.property_id == "NULL" %>
-									<%= "عميل" %>
-									<% else %>
+									<% if p.property_id == nil && p.resident_id == nil %>
+									<%= "-" %>
+									<% elsif p.resident_id == nil %>
 									<%= "عقار" %>
+									<% else %>
+									<%= "عميل" %>
 									<% end %>
 							</td>
 							<td>
-									<% if p.property_id == "NULL" %>
+									<% if p.property_id == nil %>
 									<%=  bill_to(p.resident_id) %>
 									<% else %>
-									<%=  property_id_to_address(p.property_id) %>
+									<%= property_id_to_address(p.property_id) %>
 									<% end %>
 							</td>
 							<td><%= p.amount %></td>

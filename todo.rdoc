@@ -1,0 +1,14 @@
+-- Residents
+* Show page.
+
+-- Bills
+* Show page.
+
+-- Properties
+* fix vacancy, it should show as false if the property id is in residents table.
+
+
+
+-----------------------
+
+* Dashboard page.

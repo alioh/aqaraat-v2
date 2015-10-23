@@ -5,31 +5,55 @@ class ResidentsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @residents = current_user.residents
+    @residents = current_user.residents.page(params[:page]).per(10)   # page(params[:page]).per(10) this is the pagination part
+
   end
 
   def show
+    @resident = Resident.find(params[:id])
+    @photos = @resident.photos
+    @title = "عرض العميل"
+
   end
 
   def new
-    @residents = current_user.residents.build
+    @resident = current_user.residents.build
   end
 
   def create
-    @residents = current_user.residents.build(resident_params)
-    if @residents.save
-      redirect_to @residents, notice: "تم الحفظ"
+    @resident = current_user.residents.build(resident_params)
+    if @resident.save
+      if params[:images]
+        params[:images].each do |image|
+          @resident.photos.create(image: image)
+        end
+      end
+
+      @photos = @resident.photos
+      redirect_to edit_resident_path(@resident), notice: "تم الحفظ"
     else
       render :new
     end
   end
 
   def edit
+    @title = "تعديل العميل"
+    if current_user.id == @resident.user.id
+      @photos = @resident.photos
+    else
+      redirect_to root_path, notice: "ليس لديك صلاحيات تعديل هذه الصفحه"
+    end
   end
 
   def update
     if @resident.update(resident_params)
-      redirect_to @resident, notice: "تم التحديث"
+      if params[:images]
+        params[:images].each do |image|
+          @resident.photos.create(image: image)
+        end
+      end
+
+      redirect_to edit_resident_path(@resident), notice: "تم التحديث"
     else
       render :edit
     end
@@ -42,6 +66,6 @@ class ResidentsController < ApplicationController
   end
 
   def resident_params
-    params.require(:resident).permit(:name, :email, :phone_number, :summary)
+    params.require(:resident).permit(:name, :email, :phone_number, :summary, :property_id)
   end
 end

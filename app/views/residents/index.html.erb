@@ -1,2 +1,46 @@
-<h1>Residents#index</h1>
-<p>Find me in app/views/residents/index.html.erb</p>
+<div class="row">
+	<div class="col-md-2">
+    <ul class="sidebar-list text-right">
+    	<li class="sidebar-item"><%= link_to "عملائك", residents_path, class: "sidebar-link active" %></li>
+      <li class="sidebar-item"><%= link_to "عقاراتك", properties_path, class: "sidebar-link" %></li>
+      <li class="sidebar-item"><%= link_to "فواتيرك", bills_path, class: "sidebar-link" %></li>
+    </ul>
+  </div>
+	<div class="col-md-10" style="direction: rtl;">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				العملاء
+			</div>
+
+			<div class="panel-body">
+				<% count = 1 %>
+				<table id="example" class="table table-striped table-hover text-right table-bordered" cellspacing="0" width="100%">
+					<thead>
+								<tr>
+									<th class="text-right">#</th>
+									<th class="text-right">الإسم</th>
+									<th class="text-right">العنوان</th>
+									<th class="text-right">رقم الهاتف</th>
+									<th class="text-right">رابط</th>
+								</tr>
+					</thead>
+					<% @residents.each do |p| %>
+					<tbody>
+						<tr>
+							<td><%= count %></td>
+							<td><%= p.name %></td>
+							<td><%= property_id_to_address(p.property_id) %></td>
+							<td><%= p.phone_number %></td>
+							<td><%= link_to "صفحة العميل", edit_resident_path(p) %></td>
+						</tr>
+					</tbody>
+					<% count += 1 %>
+					<% end %>
+					</table>
+					<div style="direction: ltr">
+					<%= paginate @residents %> <!-- pagination part, you can put this anywhere -->
+					</div>
+			</div>
+		</div>
+	</div>
+</div>

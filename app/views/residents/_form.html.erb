@@ -1,0 +1,64 @@
+<div class="panel panel-default" style="direction: rtl;">
+	<div class="panel-heading"><%= @title %> </div>
+		<div class="panel-body">
+				<%= form_for @resident do |f| %>
+				<div class="row">
+					<div class="col-xs-12 col-sm-6 col-md-6 pull-right">
+						<div class="form-group">
+							<label>إسم العميل:</label>
+								<%= f.text_field :name, placeholder: "name", class: "form-control" %>
+						</div>
+					</div>
+
+					<div class="col-xs-12 col-sm-6 col-md-6 select pull-right">
+						<div class="form-group">
+							<label>العقار الحالي:</label>
+							<%= f.collection_select(:property_id, current_user.properties, :id, :address, :include_blank => "None") %>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-12 col-sm-6 col-md-6 pull-right">
+						<div class="form-group">
+							<label>البريد الإلكتروني:</label>
+								<%= f.text_field :name, placeholder: "name", class: "form-control" %>
+						</div>
+					</div>
+
+					<div class="col-xs-12 col-sm-6 col-md-6 pull-right">
+						<div class="form-group">
+							<label>رقم الهاتف:</label>
+							<%= f.text_field :phone_number, placeholder: "phone number", class: "form-control" %>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 pull-right">
+						<div class="form-group">
+							<label>عن العميل:</label>
+							<%= f.text_area :summary, rows: 3, placeholder: "-about أعطِ معلومات عن العميل", class: "form-control" %>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 pull-right">
+						<div class="form-group">
+							<span class="btn btn-default btn-file">
+								<i class="glyphicon glyphicon-cloud-upload"></i> رفع صوره
+								<%= file_field_tag "images[]", type: :file, multiple: true %>
+							</span>
+				    </div>
+					</div>
+				</div>
+
+				<div id="photos"><%= render 'photos/list' %></div>
+
+				<div class="actions pull-right">
+				<%= f.submit "حفظ", class: "btn btn-primary" %>
+				</div>
+				<% end %>
+	</div>
+</div>
